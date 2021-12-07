@@ -75,12 +75,13 @@ header {
 
 header .name {
   margin-top: 5rem;
+  font-size: 3rem;
 }
 
 header .title {
   font-size: 1.5rem;
   color: #417989;
-  margin-top: -1.5rem;
+  margin-top: -2.5rem;
   font-family: "Alice", Georgia, Times, "Times New Roman", serif;
 }
 /*# sourceMappingURL=main.css.map */
