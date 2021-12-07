@@ -1,0 +1,85 @@
+$primary-color: #1C3942;
+$secondary-color: #417989;
+$accent-color: #D37D36;
+$danger-color: #9D0606;
+$background-hover: #F3F6F6;
+$heading-font: 'Alegreya SC', serif;
+$body-font: 'Alice', Georgia, Times, "Times New Roman", serif;
+
+
+html, body {
+    font-size: 16px;
+    font-family: $body-font;
+}
+
+h1,h2,h3,h4,h5 {
+    margin: 0;
+    padding: 0;
+    font-family: $heading-font;
+}
+
+nav {
+    border-bottom: 1px solid $primary-color;
+    box-shadow: 2px 1px 1px $primary-color;
+}
+
+.navbar {
+    display: flex;
+    align-items: flex-end;
+
+    .navlinks {
+        display: flex;
+        justify-content: flex-end;
+        margin: 0;
+        width: 100%;
+        font-size: 1.6rem;
+        a {
+            padding: 1rem 3rem;
+            text-decoration: none;
+            color: $primary-color;
+            transition: all .25s ease-out;
+            border-top: 1px solid transparent;
+    
+            &:hover {
+                color: $accent-color;
+                background: $background-hover;
+                border-top: 1px solid $accent-color;
+            }
+    
+            &:focus {
+                color: $accent-color;
+                border-top: 1px solid $accent-color;
+            }
+    
+            &:active {
+                color: $danger-color;
+                background: $background-hover;
+                border-top: 1px solid $danger-color;
+            }
+        }
+        
+    }
+}
+
+.logo {
+   width: clamp(100px, 10vw, 200px);
+    height: auto;
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+
+header {
+    text-align: center;
+    .name {
+        margin-top: 5rem;
+    }
+    .title {
+        font-size: 1.5rem;
+        color: $secondary-color;
+        margin-top: -1.5rem;
+        font-family: $body-font;
+    }
+}
+    
+    
+    
