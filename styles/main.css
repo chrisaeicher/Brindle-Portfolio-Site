@@ -7,12 +7,13 @@ h1, h2, h3, h4, h5 {
   margin: 0;
   padding: 0;
   font-family: "Alegreya SC", serif;
+  color: #1C3942;
 }
 
 nav {
-  border-bottom: 1px solid #1C3942;
-  -webkit-box-shadow: 2px 1px 1px #1C3942;
-          box-shadow: 2px 1px 1px #1C3942;
+  background: white;
+  -webkit-box-shadow: 0 2px 5px #1C3942;
+          box-shadow: 0 2px 5px #1C3942;
 }
 
 .navbar {
@@ -34,21 +35,27 @@ nav {
   margin: 0;
   width: 100%;
   font-size: 1.6rem;
+  margin-right: 3rem;
 }
 
 .navbar .navlinks a {
   padding: 1rem 3rem;
   text-decoration: none;
   color: #1C3942;
-  -webkit-transition: all .25s ease-out;
-  transition: all .25s ease-out;
-  border-top: 1px solid transparent;
+  -webkit-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
+  border: 1px solid transparent;
+  border-radius: 4px;
 }
 
 .navbar .navlinks a:hover {
   color: #D37D36;
   background: #F3F6F6;
   border-top: 1px solid #D37D36;
+  -webkit-transform: translateY(-0.25rem);
+          transform: translateY(-0.25rem);
+  -webkit-box-shadow: 3px 3px 3px gray;
+          box-shadow: 3px 3px 3px gray;
 }
 
 .navbar .navlinks a:focus {
@@ -62,26 +69,172 @@ nav {
   border-top: 1px solid #9D0606;
 }
 
+.navbar .hamburger-menu {
+  display: none;
+}
+
 .logo {
   width: clamp(100px, 10vw, 200px);
   height: auto;
   margin-left: 1rem;
   margin-top: 1rem;
+  padding-bottom: 1rem;
 }
 
-header {
+.hero {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   text-align: center;
+  margin-top: 1rem;
+  position: relative;
+  background: white;
 }
 
-header .name {
-  margin-top: 5rem;
+.hero .clip-background {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  bottom: 0;
+  right: 0;
+  background: #417989;
+  -webkit-clip-path: polygon(100% 55%, 100% 90%, 0 90%, 0 55%);
+          clip-path: polygon(100% 55%, 100% 90%, 0 90%, 0 55%);
+}
+
+.hero .name {
   font-size: 3rem;
+  color: #1C3942;
+  margin-bottom: 0;
 }
 
-header .title {
+.hero .title {
   font-size: 1.5rem;
   color: #417989;
-  margin-top: -2.5rem;
   font-family: "Alice", Georgia, Times, "Times New Roman", serif;
+}
+
+.hero .hero-image {
+  max-width: 100%;
+  margin-top: 1rem;
+  height: auto;
+  border-radius: 10px;
+}
+
+#about {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 2rem;
+}
+
+#about div {
+  background: white;
+  border-radius: 4px;
+  border-left: 2px solid #417989;
+  border-right: 2px solid #417989;
+  max-width: clamp(75%, 80%, 720px);
+  text-align: left;
+  padding: 1rem;
+}
+
+#about h1 {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 1000px) {
+  .navbar .navlinks a {
+    font-size: 1.25rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    min-height: 100px;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .navbar .logo {
+    padding: 0;
+    margin: 0;
+    margin-left: 1rem;
+  }
+  .navbar .navlinks a {
+    display: none;
+  }
+  .navbar .hamburger-menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 7px;
+    min-width: 60px;
+    margin-right: 1rem;
+  }
+  .navbar .hamburger-menu * {
+    -webkit-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+  }
+  .navbar .hamburger-menu:hover, .navbar .hamburger-menu:focus {
+    cursor: pointer;
+  }
+  .navbar .hamburger-menu:hover .line-1, .navbar .hamburger-menu:hover .line-2, .navbar .hamburger-menu:hover .line-3, .navbar .hamburger-menu:focus .line-1, .navbar .hamburger-menu:focus .line-2, .navbar .hamburger-menu:focus .line-3 {
+    background: #D37D36;
+  }
+  .navbar .hamburger-menu .line-1 {
+    width: 100%;
+    height: 5px;
+    background: #1C3942;
+  }
+  .navbar .hamburger-menu .line-2 {
+    width: 100%;
+    height: 5px;
+    background: #1C3942;
+  }
+  .navbar .hamburger-menu .line-3 {
+    width: 100%;
+    height: 5px;
+    background: #1C3942;
+  }
+  .hero .name {
+    font-size: 2rem;
+  }
+  .hero .title {
+    font-size: 1.25rem;
+  }
 }
 /*# sourceMappingURL=main.css.map */
