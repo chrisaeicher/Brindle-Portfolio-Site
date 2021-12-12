@@ -17,6 +17,7 @@ html, body {
 }
 
 h1,h2,h3,h4,h5 {
+    transition: $transition;
     margin: 0;
     padding: 0;
     font-family: $heading-font;
@@ -26,6 +27,9 @@ h1,h2,h3,h4,h5 {
 nav {
     background: white;
     box-shadow: 0 2px 5px $primary-color;
+    position: sticky;
+    top: -1px;
+    z-index: 1000;
 }
 
 .navbar {
@@ -78,11 +82,22 @@ nav {
 }
 
 .logo {
-   width: clamp(100px, 10vw, 200px);
+   
+    width: clamp(100px, 10vw, 200px);
     height: auto;
     margin-left: 1rem;
     margin-top: 1rem;
     padding-bottom: 1rem;
+
+    &:hover {
+        cursor: pointer;
+        path {
+            fill: $secondary-color;
+    }
+    path {
+        transition: $transition;
+        fill: $primary-color;
+    }
 }
 
 .hero {
@@ -93,7 +108,7 @@ nav {
     text-align: center;
     margin-top: 1rem;
     position: relative;
-    background: white;
+    
 
     .clip-background {
         position: absolute;
@@ -106,7 +121,7 @@ nav {
         bottom: 0;
         right: 0;
         background: $secondary-color;
-        clip-path: polygon(100% 55%, 100% 90%, 0 90%, 0 55%);
+        clip-path: polygon(100% 55%, 100% 70%, 0 70%, 0 55%);
     }
 
     .name {
@@ -118,7 +133,7 @@ nav {
         font-size: 1.5rem;
         color: $secondary-color;
         font-family: $body-font;
-
+        transition: $transition;
     }
 
     .hero-image {
