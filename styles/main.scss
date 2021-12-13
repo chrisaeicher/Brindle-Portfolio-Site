@@ -1,3 +1,4 @@
+// Variables
 $primary-color: #1C3942;
 $secondary-color: #417989;
 $accent-color: #D37D36;
@@ -8,6 +9,13 @@ $body-font: 'Alice', Georgia, Times, "Times New Roman", serif;
 $image-border-radius: 10px;
 $border-radius: 4px;
 $transition: all .25s ease-out;
+
+// Mixins
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 
 html, body {
@@ -30,13 +38,19 @@ nav {
     box-shadow: 0 2px 5px $primary-color;
 }
 
+#mobile-menu {
+    display: none;
+}
+
 .navbar {
     display: flex;
     align-items: flex-end;
+    border-bottom: 5px solid $secondary-color;
 
     .navlinks {
         display: flex;
         justify-content: flex-end;
+        gap: 0.5rem;
         margin: 0;
         width: 100%;
         font-size: 1.6rem;
@@ -47,33 +61,35 @@ nav {
             text-decoration: none;
             color: $primary-color;
             transition: $transition;
-            border: 1px solid transparent;
+            border-bottom: 5px solid transparent;
             border-radius: $border-radius;
+            z-index: 5;
     
             &:hover {
                 color: $accent-color;
                 background: $background-hover;
-                border-top: 1px solid $accent-color;
-                box-shadow: 1px 1px 3px 1px gray;
+                border-bottom: 5px solid $accent-color;
+                transform: translateY(-0.25rem);
 
 
             }
     
             &:focus {
                 color: $accent-color;
-                border-top: 1px solid $accent-color;
+                background: $background-hover;
+                border-bottom: 5px solid $accent-color;
             }
     
             &:active {
                 color: $danger-color;
                 background: $background-hover;
-                border-top: 1px solid $danger-color;
+                border-bottom: 5px solid $danger-color;
             }
         }
         
     }
 
-    .hamburger-menu {
+    #hamburger-menu {
         display: none;
     }
 }
@@ -93,26 +109,24 @@ nav {
     &:hover {
         cursor: pointer;
         path {
-            fill: $secondary-color;
+            fill: $accent-color;
     }
 
     }
 }
 .hero {
-    display: flex;
+    @include flex-center;
+
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     text-align: center;
     margin-top: 1rem;
     position: relative;
     
 
     .clip-background {
+        @include flex-center;
+
         position: absolute;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         width: 100%;
         height: 100%;
         z-index: -1;
@@ -142,10 +156,10 @@ nav {
     }
 }
 
-#about {
-    display: flex;
+.about {
+    @include flex-center;
+
     flex-direction: column;
-    align-items: center;
     margin-top: 2rem;
     
 
@@ -161,7 +175,7 @@ nav {
 
         #portrait {
             transition: $transition;
-            width: clamp(250px, 50%, 600px);
+            width: clamp(250px, 50%, 400px);
             height: auto;
             border-radius: 100%;
             border: 8px solid $secondary-color;
@@ -177,29 +191,54 @@ nav {
 }
 
 .footer {
+    @include flex-center;
+
     width: 100%;
-    height: 100px;
+    height: auto;
     background: $secondary-color;
     color: white;
-    display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    gap: .75rem;
+    padding: 0.5rem 0 1rem 0;
 
     .social {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        @include flex-center;
+
         gap: 0.5rem;
         width: 100%;
         height: 50%;
 
+        a {
+            &:hover {
+                transform: scale(120%);
+                svg path {
+                    fill: $accent-color;
+                }
+            }
+            &:focus {
+                svg path {
+                    fill: $accent-color;
+                } 
+            }
+    
+            &:active svg path {
+                fill: $danger-color;
+
+            }
+        }
+
         svg {
-            width: 24px;
-            height: 24px;
+            width: 1.5rem;
+            height: 1.5rem;
             path {
+                transition: $transition;
                 fill: white;
             }
+        }
+
+        .instagram {
+            width: 1.6rem;
+            height: 1.6rem;
         }
     }
 }
@@ -228,12 +267,13 @@ nav {
             display: none;
         }
 
-        .hamburger-menu {
+        #hamburger-menu {
             display: flex;
             flex-direction: column;
             gap: 7px;
-            min-width: 60px;
+            min-width: 50px;
             margin-right: 1rem;
+            z-index: 1000;
             
             * {
                 transition: $transition;
@@ -263,6 +303,36 @@ nav {
                 background: $primary-color;
                 
             }
+            
+            &.open {
+               transition: $transition;
+               position: fixed;
+               top: 2.25rem;
+               right: 0.20rem;
+               &:hover {
+                   .line-1,.line-3 {
+                        background: $accent-color;
+                    }
+                }
+
+               .line-1 {
+                   transform: translateY(13px) rotate(45deg);
+                   background: white;
+               }
+
+               .line-2 {
+                   transform: translateX(10px);
+                   opacity: 0;
+               }
+
+               .line-3 {
+                   transform: translateY(-11px) rotate(-45deg);
+                   background: white;
+
+
+               }
+
+            }
         }
     }   
 
@@ -274,6 +344,45 @@ nav {
 
         .title {
             font-size: 1.25rem;
+        }
+    }
+
+    #mobile-menu {
+        transition: $transition;
+        height: 0;
+
+        .mobile-links {
+            display: none;
+        }
+
+
+        &.open {
+            @include flex-center;
+
+            flex-direction: column;
+            gap: 2rem;
+            transition: $transition;
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: $secondary-color;
+
+            .mobile-links {
+                display: block;
+                color: white;
+                z-index: 1000;
+                text-decoration: none;
+                font-size: 2.5rem;
+                border-bottom: 1px solid white;
+
+                &:hover {
+                    transition: $transition;
+                    color: $accent-color;
+                }
+            }
         }
     }
 }
