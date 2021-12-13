@@ -13,7 +13,8 @@ $transition: all .25s ease-out;
 html, body {
     font-size: 16px;
     font-family: $body-font;
-    
+    color: $primary-color;
+    line-height: 1.4;
 }
 
 h1,h2,h3,h4,h5 {
@@ -27,9 +28,6 @@ h1,h2,h3,h4,h5 {
 nav {
     background: white;
     box-shadow: 0 2px 5px $primary-color;
-    position: sticky;
-    top: -1px;
-    z-index: 1000;
 }
 
 .navbar {
@@ -56,8 +54,7 @@ nav {
                 color: $accent-color;
                 background: $background-hover;
                 border-top: 1px solid $accent-color;
-                transform: translateY(-0.25rem);
-                box-shadow: 3px 3px 3px gray;
+                box-shadow: 1px 1px 3px 1px gray;
 
 
             }
@@ -88,18 +85,19 @@ nav {
     margin-left: 1rem;
     margin-top: 1rem;
     padding-bottom: 1rem;
-
+    path {
+        transition: $transition;
+        fill: $primary-color;
+    }
+    
     &:hover {
         cursor: pointer;
         path {
             fill: $secondary-color;
     }
-    path {
-        transition: $transition;
-        fill: $primary-color;
+
     }
 }
-
 .hero {
     display: flex;
     flex-direction: column;
@@ -136,11 +134,11 @@ nav {
         transition: $transition;
     }
 
-    .hero-image {
-        max-width: 100%;
-        margin-top: 1rem;
-        height: auto;
-        border-radius: $image-border-radius;
+    figure .hero-image {
+            max-width: 100%;
+            margin-top: 1rem;
+            height: auto;
+            border-radius: $image-border-radius;
     }
 }
 
@@ -149,23 +147,63 @@ nav {
     flex-direction: column;
     align-items: center;
     margin-top: 2rem;
+    
 
 
     div {
         background: white;
-        border-radius: $border-radius;
-        border-left: 2px solid $secondary-color;
-        border-right: 2px solid $secondary-color;
         max-width: clamp(75%, 80%, 720px);
         text-align: left;
         padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        border-top: 2px solid $secondary-color;
+
+        #portrait {
+            transition: $transition;
+            width: clamp(250px, 50%, 600px);
+            height: auto;
+            border-radius: 100%;
+            border: 8px solid $secondary-color;
+            margin: 0 auto;
+            
+        }
     }
 
     h1 {
-        margin-bottom: 0;
+        text-align: center;
     }
     
 }
+
+.footer {
+    width: 100%;
+    height: 100px;
+    background: $secondary-color;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .social {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 100%;
+        height: 50%;
+
+        svg {
+            width: 24px;
+            height: 24px;
+            path {
+                fill: white;
+            }
+        }
+    }
+}
+
 
 @media screen and (max-width: 1000px) {
     .navbar {
@@ -226,10 +264,8 @@ nav {
                 
             }
         }
+    }   
 
-
-        
-    }
 
     .hero {
         .name {
@@ -240,9 +276,4 @@ nav {
             font-size: 1.25rem;
         }
     }
-
-
 }
-    
-    
-    
