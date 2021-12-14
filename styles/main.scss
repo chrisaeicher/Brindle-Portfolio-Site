@@ -18,6 +18,11 @@ $transition: all .25s ease-out;
 }
 
 
+// FOUNDATIONS
+
+* {
+    box-sizing: border-box;
+}
 html, body {
     font-size: 16px;
     font-family: $body-font;
@@ -32,6 +37,10 @@ h1,h2,h3,h4,h5 {
     font-family: $heading-font;
     color: $primary-color;
 }
+
+
+
+// GLOBAL NAV
 
 nav {
     background: white;
@@ -137,6 +146,7 @@ nav {
     }
 }
 
+// GLOBAL LOGO
 .logo {
    
     width: clamp(100px, 10vw, 200px);
@@ -157,82 +167,8 @@ nav {
 
     }
 }
-.hero {
-    @include flex-center;
 
-    flex-direction: column;
-    text-align: center;
-    margin-top: 1rem;
-    position: relative;
-    
-
-    .clip-background {
-        @include flex-center;
-
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        bottom: 0;
-        right: 0;
-        background: $secondary-color;
-        clip-path: polygon(100% 55%, 100% 70%, 0 70%, 0 55%);
-    }
-
-    .name {
-        font-size: 3rem;
-        color: $primary-color;
-        margin-bottom: 0;
-    }
-    .title {
-        font-size: 1.5rem;
-        color: $secondary-color;
-        font-family: $body-font;
-        transition: $transition;
-    }
-
-    figure .hero-image {
-            max-width: 100%;
-            margin-top: 1rem;
-            height: auto;
-            border-radius: $image-border-radius;
-    }
-}
-
-.about {
-    @include flex-center;
-
-    flex-direction: column;
-    margin-top: 2rem;
-    
-
-
-    div {
-        background: white;
-        max-width: clamp(75%, 80%, 720px);
-        text-align: left;
-        padding: 1rem;
-        display: flex;
-        flex-direction: column;
-        border-top: 2px solid $secondary-color;
-
-        #portrait {
-            transition: $transition;
-            width: clamp(250px, 50%, 400px);
-            height: auto;
-            border-radius: 100%;
-            border: 8px solid $secondary-color;
-            margin: 0 auto;
-            
-        }
-    }
-
-    h1 {
-        text-align: center;
-    }
-    
-}
-
+// GLOBAL FOOTER
 .footer {
     @include flex-center;
 
@@ -286,7 +222,135 @@ nav {
     }
 }
 
+//
+// HOME PAGE //
+//
 
+// HEADER
+.hero {
+    @include flex-center;
+
+    flex-direction: column;
+    text-align: center;
+    margin-top: 1rem;
+
+    .name {
+        font-size: 3rem;
+        color: $primary-color;
+        margin-bottom: 0;
+    }
+    .title {
+        font-size: 1.5rem;
+        color: $secondary-color;
+        font-family: $body-font;
+        transition: $transition;
+    }
+
+    figure .hero-image {
+            width: clamp(300px, 70%, 100%);
+            margin: 0;
+            padding: 0;
+            margin-top: 1rem;
+            height: auto;
+            border-radius: $image-border-radius;
+    }
+}
+
+// ABOUT SECTION
+.about {
+    @include flex-center;
+
+    flex-direction: column;
+    margin-top: 2rem;
+    
+
+
+    div {
+        background: white;
+        max-width: clamp(75%, 80%, 720px);
+        text-align: left;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        border-top: 2px solid $secondary-color;
+
+        #portrait {
+            transition: $transition;
+            width: clamp(250px, 50%, 400px);
+            height: auto;
+            border-radius: 100%;
+            border: 8px solid $secondary-color;
+            margin: 0 auto;
+            margin-bottom: 1rem;
+            
+        }
+    }
+
+    h1 {
+        text-align: center;
+    }
+    
+}
+
+//
+// GALLERY PAGES
+//
+
+.scenic-gallery {
+    @include flex-center;
+
+    flex-direction: column;
+    margin-bottom: 7rem;
+
+    .gallery {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+
+        .gallery-img {
+            max-width: 500px;
+            max-height: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            
+            
+            img {
+                transition: $transition;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                margin-bottom: 1rem;
+                filter: saturate(110%);
+                border-radius: $image-border-radius;
+
+                &:hover {
+                    transform: scale(105%);
+                    filter: saturate(160%);
+                }
+
+                &.christmas-carol-img:hover {
+                    filter: saturate(130%);
+                }
+            }
+
+            figcaption {
+                color: $primary-color;
+                font-family: $heading-font;
+                font-style: italic; 
+                font-size: 1.3rem;
+            }
+
+            span {
+                font-family: $body-font;
+            }
+        }
+    }
+}
+
+// MED DEVICE MEDIA QUERY
 @media screen and (max-width: 1000px) {
     .navbar {
         .navlink-wrapper .navlinks  {
@@ -296,9 +360,14 @@ nav {
             font-size: 1.25rem;
         }
     }
+
+    .gallery {
+        grid-template-rows: 100%;
+    }
 }
 
-@media screen and (max-width: 768px) {
+// TABLETS AND SMALLER MEDIA QUERY
+@media screen and (max-width: 800px) {
     .navbar {
         min-height: 100px;
         justify-content: space-between;
@@ -383,7 +452,8 @@ nav {
     }   
 
     .hero {
-        width: 100%;d
+        margin: 0;
+        padding: 0;
         .name {
             font-size: 2rem;
         }
@@ -430,9 +500,13 @@ nav {
 
                 &:hover {
                     transition: $transition;
+                    border-bottom: 1px solid $accent-color;
                     color: $accent-color;
                 }
             }
         }
+    }
+    .footer {
+        font-size: 0.9rem;
     }
 }

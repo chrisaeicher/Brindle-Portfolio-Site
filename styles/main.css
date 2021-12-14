@@ -1,3 +1,8 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 html, body {
   font-size: 16px;
   font-family: "Alice", Georgia, Times, "Times New Roman", serif;
@@ -153,113 +158,6 @@ nav {
   fill: #D37D36;
 }
 
-.hero {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  text-align: center;
-  margin-top: 1rem;
-  position: relative;
-}
-
-.hero .clip-background {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  bottom: 0;
-  right: 0;
-  background: #417989;
-  -webkit-clip-path: polygon(100% 55%, 100% 70%, 0 70%, 0 55%);
-          clip-path: polygon(100% 55%, 100% 70%, 0 70%, 0 55%);
-}
-
-.hero .name {
-  font-size: 3rem;
-  color: #1C3942;
-  margin-bottom: 0;
-}
-
-.hero .title {
-  font-size: 1.5rem;
-  color: #417989;
-  font-family: "Alice", Georgia, Times, "Times New Roman", serif;
-  -webkit-transition: all 0.25s ease-out;
-  transition: all 0.25s ease-out;
-}
-
-.hero figure .hero-image {
-  max-width: 100%;
-  margin-top: 1rem;
-  height: auto;
-  border-radius: 10px;
-}
-
-.about {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  margin-top: 2rem;
-}
-
-.about div {
-  background: white;
-  max-width: clamp(75%, 80%, 720px);
-  text-align: left;
-  padding: 1rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  border-top: 2px solid #417989;
-}
-
-.about div #portrait {
-  -webkit-transition: all 0.25s ease-out;
-  transition: all 0.25s ease-out;
-  width: clamp(250px, 50%, 400px);
-  height: auto;
-  border-radius: 100%;
-  border: 8px solid #417989;
-  margin: 0 auto;
-}
-
-.about h1 {
-  text-align: center;
-}
-
 .footer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -330,6 +228,180 @@ nav {
   height: 1.6rem;
 }
 
+.hero {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.hero .name {
+  font-size: 3rem;
+  color: #1C3942;
+  margin-bottom: 0;
+}
+
+.hero .title {
+  font-size: 1.5rem;
+  color: #417989;
+  font-family: "Alice", Georgia, Times, "Times New Roman", serif;
+  -webkit-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
+}
+
+.hero figure .hero-image {
+  width: clamp(300px, 70%, 100%);
+  margin: 0;
+  padding: 0;
+  margin-top: 1rem;
+  height: auto;
+  border-radius: 10px;
+}
+
+.about {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 2rem;
+}
+
+.about div {
+  background: white;
+  max-width: clamp(75%, 80%, 720px);
+  text-align: left;
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-top: 2px solid #417989;
+}
+
+.about div #portrait {
+  -webkit-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
+  width: clamp(250px, 50%, 400px);
+  height: auto;
+  border-radius: 100%;
+  border: 8px solid #417989;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+}
+
+.about h1 {
+  text-align: center;
+}
+
+.scenic-gallery {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 7rem;
+}
+
+.scenic-gallery .gallery {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.scenic-gallery .gallery .gallery-img {
+  max-width: 500px;
+  max-height: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.scenic-gallery .gallery .gallery-img img {
+  -webkit-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-bottom: 1rem;
+  -webkit-filter: saturate(110%);
+          filter: saturate(110%);
+  border-radius: 10px;
+}
+
+.scenic-gallery .gallery .gallery-img img:hover {
+  -webkit-transform: scale(105%);
+          transform: scale(105%);
+  -webkit-filter: saturate(160%);
+          filter: saturate(160%);
+}
+
+.scenic-gallery .gallery .gallery-img img.christmas-carol-img:hover {
+  -webkit-filter: saturate(130%);
+          filter: saturate(130%);
+}
+
+.scenic-gallery .gallery .gallery-img figcaption {
+  color: #1C3942;
+  font-family: "Alegreya SC", serif;
+  font-style: italic;
+  font-size: 1.3rem;
+}
+
+.scenic-gallery .gallery .gallery-img span {
+  font-family: "Alice", Georgia, Times, "Times New Roman", serif;
+}
+
 @media screen and (max-width: 1000px) {
   .navbar .navlink-wrapper .navlinks {
     font-size: 1.25rem;
@@ -337,9 +409,13 @@ nav {
   .navbar .dropdown {
     font-size: 1.25rem;
   }
+  .gallery {
+    -ms-grid-rows: 100%;
+        grid-template-rows: 100%;
+  }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 800px) {
   .navbar {
     min-height: 100px;
     -webkit-box-pack: justify;
@@ -421,10 +497,10 @@ nav {
     background: white;
   }
   .hero {
-    width: 100%;
+    margin: 0;
+    padding: 0;
   }
-  .hero d
-.name {
+  .hero .name {
     font-size: 2rem;
   }
   .hero .title {
@@ -477,7 +553,11 @@ nav {
   #mobile-menu.open .mobile-links:hover {
     -webkit-transition: all 0.25s ease-out;
     transition: all 0.25s ease-out;
+    border-bottom: 1px solid #D37D36;
     color: #D37D36;
+  }
+  .footer {
+    font-size: 0.9rem;
   }
 }
 /*# sourceMappingURL=main.css.map */
